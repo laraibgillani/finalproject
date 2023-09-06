@@ -1,0 +1,65 @@
+.class-divSeasson{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.chkBox{
+    margin-top: 0px; 
+    margin-right: 10px;
+    width: 2%;
+}
+.class-CounterButtonDiv{
+    display: flex;
+    padding-top: 8px;
+}
+.class-counterButton{
+    border: 1px solid black;
+    cursor: pointer;
+    background-color:rgb(180, 177, 177);
+    border-radius: 4px;
+    height: 30px;
+    width: 30px;
+}
+.h4-heading{
+    padding: 8px;
+    margin: 0px;
+    font-size: 20px;
+
+    }
+.class-fruitName{
+    padding-top: 10px;
+    width: 25%;
+    font-weight: 600;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+}
+.class-fruitprice{
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+
+
+}
+@media(max-width: 1024px){}
+  @media(max-width: 767px){
+    .chkBox {
+        width: 4%;
+    }
+    .class-fruitName {
+        font-size: 16px;
+    }
+    .class-fruitprice {
+        font-size: 16px;
+    }
+    .h4-heading {
+        padding: 4px;
+        font-size: 16px;
+    }
+    .class-counterButton {
+        height: 25px;
+        width: 25px;
+    }
+  }

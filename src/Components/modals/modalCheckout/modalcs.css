@@ -1,0 +1,143 @@
+.headerClass{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 5px 5px;
+  border-bottom: 1px solid #121212;
+
+}
+.order-class{
+    /* width: 100%; */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: 1px solid black;
+}
+.order-classItems{
+display: flex;
+flex-direction:row;
+justify-content: center;
+align-items: center;
+height: 12%;
+padding-left: 30px;
+}
+.classitems{
+    background-color: white;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+}
+.h5ModalClass{
+    width: 33%;
+}
+.h2OfModal{
+    color: rgb(83, 4, 4);
+    display: flex;
+justify-content: center;
+align-items: center;
+width: 90%;
+
+}
+.p-fruitsTotal{
+  font-size: 15px;
+    padding-top: 10px;
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.butoon-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttons{
+    padding: 10px 16px;
+    margin: 4px 4px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-weight: 700;
+    background-color:rgb(160, 194, 245);
+    border-radius: 7px;
+    transition: .3s;
+}
+.confirmAll{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+/* modal cs */
+.main {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+   .modal-overlay {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  } 
+  .screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 2;
+  }
+
+ 
+  .footerClass{
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #1f1e1e;
+
+  }
+  .modal-close{
+    background-color: rgb(91, 91, 130);
+    top: auto;
+    left: auto;
+    width: 10%;
+    height: 4%;
+    cursor: pointer;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  @media(max-width: 1024px){
+    
+  }
+  @media(max-width: 767px){
+    .buttons {
+      padding: 0px 5px;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid black;
+    }
+    .modalcloseChekout {
+      width: 10%;
+    }
+  }

@@ -1,0 +1,25 @@
+.navbarClass{
+    background-color: grey;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.navbarClass ul{
+overflow: auto;
+}
+.navbarlink{
+    float: left;
+    list-style: none;
+    margin: 5px 18px;
+    color: white;
+    font-size: 18px;
+}
+.navbarlink a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: white;
+}
+.navbarlink a:hover{
+    background-color: cadetblue;
+    border-radius: .52rem;
+}
