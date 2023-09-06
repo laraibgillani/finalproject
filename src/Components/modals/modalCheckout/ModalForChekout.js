@@ -1,9 +1,9 @@
-// CheckoutModal.js
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSelectedFruits } from "../../../storeReducer/FruitSliceReducer";
 import { clearData } from "../../../storeReducer/FruitSliceReducer";
 import "./modalcs.css";
+import Button from "../../button/Button";
 import {
   closeModal,
   okModalOpen,
@@ -67,12 +67,8 @@ const ModalForChekout = () => {
             Total Value: {totalValue.toFixed(2)}
           </h5>
           <footer className="footerClass">
-            <button className="buttons" onClick={okHandler}>
-              Ok
-            </button>
-            <button className="buttons" onClick={cancelModal}>
-              cancel
-            </button>
+            <Button onClick={okHandler}>Ok</Button>
+            <Button onClick={cancelModal}>cancel</Button>
           </footer>
         </div>
       </div>

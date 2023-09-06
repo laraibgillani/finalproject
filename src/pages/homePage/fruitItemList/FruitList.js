@@ -1,7 +1,7 @@
 import React from "react";
 import "./fruitList.css";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import FruitItem from "../fruitItemLayout/FruitItem";
+import FruitItem from "./fruitItem/FruitItem";
 const FruitList = ({ targetSeason, handleTotalValueChange }) => {
   const fruits = useSelector((state) => state.fruits.fruits);
   const filteredFruits = fruits?.filter(

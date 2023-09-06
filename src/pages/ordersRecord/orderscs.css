@@ -36,7 +36,6 @@ max-width: fit-content;
 }
 .table-Heading{
     border: 1px solid #443C68;
-    /* min-width: 8%; */
     padding: 10px;
     line-height: 1.7;
     position: sticky;
@@ -48,7 +47,6 @@ max-width: fit-content;
 .tableData{
     font-size: 15px;
     border: 1px solid #443C68;
-    /* min-width: 8%; */
     padding: 10px;
     line-height: 1.7;
 }
@@ -61,5 +59,3 @@ max-width: fit-content;
     border-radius: 2px;
     transition: .3s;
 }
-@media(max-width: 1024px){}
-  @media(max-width: 767px){}

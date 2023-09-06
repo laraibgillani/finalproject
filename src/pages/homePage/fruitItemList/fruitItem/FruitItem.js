@@ -7,7 +7,7 @@ import {
   decrementQuantity,
   incrementQuantity,
   checkBoxUpdate,
-} from "../../storeReducer/FruitSliceReducer";
+} from "../../../../storeReducer/FruitSliceReducer";
 const FruitItem = ({ fruit }) => {
   const quantity = useSelector((state) => {
     const foundFruit = state.fruits.fruits.find((item) => item.id === fruit.id);

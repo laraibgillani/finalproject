@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./orderscs.css";
-import Navbar from "../navbar/Navbar";
-import { toast } from "react-toastify";
+import Navbar from "../../layout/navbar/Navbar";
+import { Icons, toast } from "react-toastify";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -27,7 +27,11 @@ const Orders = () => {
     }).then((response) => {
       const updateRecords = orders.filter((order) => order.id !== id);
       setOrders(updateRecords);
-      toast("Record Deleted", { position: "top-right" });
+      if (response.ok) {
+        toast("Record Deleted", { position: "top-right" });
+      } else {
+        toast("Error in Record Deletetion", { position: "top-right" });
+      }
     });
   };
 
@@ -59,12 +63,13 @@ const Orders = () => {
                     <td className="tableData">{order.paymentMethod}</td>
                     <td>
                       {" "}
-                      <button
+                      <div
                         className="tableData order-btn"
                         onClick={() => handleRemoveOrder(order.id)}
                       >
+                        {" "}
                         X
-                      </button>
+                      </div>
                     </td>
                   </tr>
                 ))}

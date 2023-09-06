@@ -114,15 +114,10 @@ const FruitSlice = createSlice({
       state.itemsList = [];
       state.totalQuantity = 0;
     },
-    // removeOrder: (state, action) => {
-    //   const orderIdToRemove = action.payload;
-    //   state.orders = state.orders.filter((item) => item.id !== orderIdToRemove);
-    // },
   },
 });
 export const {
   clearData,
-  // removeOrder,
   okModalOpen,
   okModalClose,
   screenBackDropOn,
@@ -137,5 +132,6 @@ export const {
   addToCart,
 } = FruitSlice.actions;
 export const selectSelectedFruits = (state) => state.fruits.selectedFruits;
+export const allFruitsArry = (state) => state.fruits.fruits;
 
 export default FruitSlice.reducer;

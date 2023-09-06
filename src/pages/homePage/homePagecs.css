@@ -1,12 +1,12 @@
+
+
 *{
     margin: 0px;
     padding: 0px;
 }
 body{
-background-image:url('backgroundimg.jpg');
 background-repeat: no-repeat;
 height:auto
-/* padding: 20px; */
 }
 .index{
     z-index: 3;
@@ -21,7 +21,6 @@ height:auto
     font-weight: 600;
 }
 .Main-div{
-    /* padding-top: 30px; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -55,7 +54,6 @@ width: 44%;
 .prices-div{
         border: 1px solid rgb(131, 130, 130);
         height:40%;
-        /* margin: 10px; */
         width: 94%;
         padding-left: 10px;
 }

@@ -6,6 +6,7 @@ import { closeModal } from "../../../storeReducer/FruitSliceReducer";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { clearData } from "../../../storeReducer/FruitSliceReducer";
+import Button from "../../button/Button";
 
 const ConfirmationModal = () => {
   const dispatch = useDispatch();
@@ -17,38 +18,38 @@ const ConfirmationModal = () => {
   );
   const [isChcked, setisChcked] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [formData, setFormData] = useState({
+  const [formAddressData, setAddressData] = useState({
     name: "",
     num: "",
     address: "",
     totalValue: "",
   });
-  const [state, setState] = useState(1);
+  const [tabState, setTabState] = useState(1);
   const action = (index) => {
-    setState(index);
+    setTabState(index);
   };
   const [num, setNum] = useState("");
   const handleNumChange = (event) => {
     const limit = 11;
     setNum(event.target.value.slice(0, limit));
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
+    setAddressData({
+      ...formAddressData,
       [name]: value,
     });
   };
   const crossHandler = () => {
     dispatch(closeModal());
-    // dispatch(clearData());
+    dispatch(clearData());
   };
-  const handleChange = (e) => {
+  const handleAddressChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setAddressData({
+      ...formAddressData,
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleAddressSubmit = (e) => {
     e.preventDefault();
   };
   const paymentSubmit = (e) => {
@@ -61,7 +62,7 @@ const ConfirmationModal = () => {
   const addressHandler = (e) => {
     e.preventDefault();
 
-    const { name, num, address } = formData;
+    const { name, num, address } = formAddressData;
 
     if (name && num && address) {
       action(3);
@@ -74,9 +75,9 @@ const ConfirmationModal = () => {
     action(4);
   };
 
-  const submitData = async (e) => {
+  const submitDataToDatabase = async (e) => {
     e.preventDefault();
-    const { name, num, address } = formData;
+    const { name, num, address } = formAddressData;
     if (name && num && address && paymentMethod && totalValue) {
       const res = fetch(
         "https://fruit-mart-dffeb-default-rtdb.firebaseio.com/OrdersCollection.json",
@@ -113,16 +114,16 @@ const ConfirmationModal = () => {
           <header className="headerModal">
             <div className="box">
               <div className="tabs">
-                <div className={`${state === 1 ? "tab active-tab" : "tab"}`}>
+                <div className={`${tabState === 1 ? "tab active-tab" : "tab"}`}>
                   Details
                 </div>
-                <div className={`${state === 2 ? "tab active-tab" : "tab"}`}>
+                <div className={`${tabState === 2 ? "tab active-tab" : "tab"}`}>
                   Address{" "}
                 </div>
-                <div className={`${state === 3 ? "tab active-tab" : "tab"}`}>
+                <div className={`${tabState === 3 ? "tab active-tab" : "tab"}`}>
                   Payment
                 </div>
-                <div className={`${state === 4 ? "tab active-tab" : "tab"}`}>
+                <div className={`${tabState === 4 ? "tab active-tab" : "tab"}`}>
                   Confirmation
                 </div>
               </div>
@@ -133,7 +134,9 @@ const ConfirmationModal = () => {
           </header>
 
           <div className="contents">
-            <div className={`${state === 1 ? "active-contentt " : " content"}`}>
+            <div
+              className={`${tabState === 1 ? "active-contentt " : " content"}`}
+            >
               <div className="order-classItemsClass">
                 <table className="table-primary">
                   <thead>
@@ -156,27 +159,25 @@ const ConfirmationModal = () => {
                 <h5 className="p-fruitsTotal h5ModalClass">
                   Total Value: {totalValue.toFixed(2)}
                 </h5>
-                <button className="buttons" onClick={() => action(2)}>
-                  Next
-                </button>
+                <Button onClick={() => action(2)}> Next</Button>
               </div>
             </div>
             <div
               className={`${
-                state === 2 ? "content active-content" : "content"
+                tabState === 2 ? "content active-content" : "content"
               }`}
             >
               <div className="formStyle">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleAddressSubmit}>
                   <label className="labelClass" htmlFor="name">
                     <b>Name:</b>
                   </label>
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
+                    value={formAddressData.name}
                     className="nameInput"
-                    onChange={handleChange}
+                    onChange={handleAddressChange}
                     required
                   />
                   <br />
@@ -186,7 +187,7 @@ const ConfirmationModal = () => {
                   <input
                     type="number"
                     name="num"
-                    value={formData.num}
+                    value={formAddressData.num}
                     onChange={handleNumChange}
                     className="nameInput"
                     required
@@ -202,24 +203,20 @@ const ConfirmationModal = () => {
                   <br />
                   <textarea
                     name="address"
-                    value={formData.address}
+                    value={formAddressData.address}
                     className="adresInput"
-                    onChange={handleChange}
+                    onChange={handleAddressChange}
                     required
                   ></textarea>
-                  <button
-                    className="buttons"
-                    type="submit"
-                    onClick={addressHandler}
-                  >
-                    submit Addres
-                  </button>
+                  <Button type="submit" onClick={addressHandler}>
+                    Next
+                  </Button>
                 </form>
               </div>
             </div>
             <div
               className={`${
-                state === 3 ? "content active-content" : "content"
+                tabState === 3 ? "content active-content" : "content"
               }`}
             >
               <div className="confirmAll">
@@ -273,20 +270,16 @@ const ConfirmationModal = () => {
                   </label>
                   <br />
                   {isChcked && (
-                    <button
-                      className="buttons"
-                      type="submit"
-                      onClick={paymentHandler}
-                    >
+                    <Button type="submit" onClick={paymentHandler}>
                       Submit
-                    </button>
+                    </Button>
                   )}
                 </form>
               </div>
             </div>
             <div
               className={`${
-                state === 4 ? "content active-content" : "content"
+                tabState === 4 ? "content active-content" : "content"
               }`}
             >
               <div className="confirmAll">
@@ -296,25 +289,21 @@ const ConfirmationModal = () => {
                   Total Value: {totalValue.toFixed(2)}
                 </h5>
                 <h5 className="p-fruitsTotal h5ModalClass">
-                  Name:{formData.name}
+                  Name:{formAddressData.name}
                 </h5>
                 <h5 className="p-fruitsTotal h5ModalClass">
-                  Phone No:{formData.num}
+                  Phone No:{formAddressData.num}
                 </h5>
                 <h5 className="p-fruitsTotal h5ModalClass">
-                  Address:{formData.address}
+                  Address:{formAddressData.address}
                 </h5>
                 <h5 className="p-fruitsTotal h5ModalClass">
                   payment way:{paymentMethod}
                 </h5>
                 <hr />
                 <div className="butoon-flex">
-                  <button className="buttons" onClick={submitData}>
-                    Confirm Order
-                  </button>
-                  <button className="buttons" onClick={crossHandler}>
-                    Cancel
-                  </button>
+                  <Button onClick={submitDataToDatabase}>Confirm Order</Button>
+                  <Button onClick={crossHandler}>Cancel</Button>
                 </div>
               </div>
             </div>

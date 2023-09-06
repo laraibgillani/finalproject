@@ -11,7 +11,7 @@
     color: rgb(48, 31, 86);
     font-family: 'Montserrat', ui-sans-serif;
 }
-.buttons{
+.Confirm-buttons{
     padding: 10px 16px;
     margin: 4px 4px;
     border: 2px solid black;
@@ -174,6 +174,7 @@ background-color: lightgray;
   align-items: center;
   justify-content: center;
 }
+/* Media Query for Responsiveness */
 @media(max-width: 1024px){}
   @media(max-width: 767px){
     .box {
@@ -184,4 +185,26 @@ background-color: lightgray;
       padding: 4px;
       font-size: 15px;
     }
+    .Confirm-buttons{
+      padding: 2px 10px;
+      margin: 4px 0px;
+  }
+  .modalcloseChekout {
+    background-color: rgb(218, 223, 229);
+    top: auto;
+    left: auto;
+    width: 5%;
+    height: 0%;
+    cursor: pointer;
+    margin: 0px 0px 0px 10px; 
+  }
+  .h5ModalClass {
+    width: 60%;
+}
+.h2OfModal {
+  width: 100%;
+  font-size: 20px;
+
+}
+
   }

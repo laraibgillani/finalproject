@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const navigate = useNavigate(); // Initialize useHistory
+  const navigate = useNavigate();
 
   const database = [
     {
