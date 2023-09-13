@@ -1,4 +1,18 @@
 
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;  
+}
+.Token-class{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    color: rgb(82, 4, 20);
+    font-weight: 700; 
+}
 .chekoutHeading{
     display: flex;
     align-items: center;

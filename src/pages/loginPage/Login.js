@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./loginForm.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,6 +32,13 @@ const Login = () => {
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
         setIsSubmitted(true);
+        const token = "your-secret-token";
+        const expireTime = new Date().getTime() + 1 * 60 * 1000;
+        localStorage.setItem("token", token);
+        localStorage.setItem("tokenExpiration", expireTime.toString());
+        console.log(localStorage.getItem("tokenExpiration"));
+        console.log(localStorage.getItem("token"));
+
         navigate("/home");
       }
     } else {
@@ -42,9 +49,17 @@ const Login = () => {
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
+
   const submitHandler = () => {
-    toast("login successful!", { position: "top-center" });
+    toast("login successful!", { position: "top-right" });
+    localStorage.setItem("userName", data.current.value);
+    localStorage.setItem("pass", data1.current.value);
+
+    console.log(localStorage.getItem("userName"));
+    console.log(localStorage.getItem("pass"));
   };
+  const data = useRef();
+  const data1 = useRef();
 
   return (
     <div className="container">
@@ -52,6 +67,7 @@ const Login = () => {
         <div className="loginPage">
           <h1>Login</h1>
           <input
+            ref={data}
             className="inputClass"
             type="text"
             name="uname"
@@ -60,6 +76,7 @@ const Login = () => {
           />
           {renderErrorMessage("uname")}
           <input
+            ref={data1}
             className="inputClass"
             type="password"
             placeholder="password"

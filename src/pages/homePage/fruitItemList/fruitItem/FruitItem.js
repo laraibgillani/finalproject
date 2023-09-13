@@ -40,11 +40,19 @@ const FruitItem = ({ fruit }) => {
       <h4 className="class-fruitName">{fruit.fname}</h4>
       <h4 className="class-fruitprice">${fruit.fprice}</h4>
       <div className="class-CounterButtonDiv">
-        <button className="class-counterButton" onClick={removbtnHandler}>
+        <button
+          className="class-counterButton"
+          onClick={removbtnHandler}
+          disabled={isChecked}
+        >
           -
         </button>
         <h4 className="h4-heading">{quantity} </h4>
-        <button className="class-counterButton" onClick={addbtnHandler}>
+        <button
+          className="class-counterButton"
+          onClick={addbtnHandler}
+          disabled={isChecked}
+        >
           +
         </button>
       </div>

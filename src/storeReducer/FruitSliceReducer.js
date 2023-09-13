@@ -4,6 +4,7 @@ const initialState = {
   isOpen: false,
   isDrop: false,
   okIsOpen: false,
+  isLogin: false,
   fruits: [
     { id: 1, fname: "apple", fprice: 100, season: "Winter", quantity: 1 },
     { id: 2, fname: "orange", fprice: 150, season: "Winter", quantity: 1 },
@@ -62,6 +63,9 @@ const FruitSlice = createSlice({
         fruit.quantity++;
       }
     },
+    setLogin: (state, action) => {
+      state.isLogin = true;
+    },
     decrementQuantity: (state, action) => {
       const { fruitId } = action.payload;
       const fruit = state.fruits.find((fruit) => fruit.id === fruitId);
@@ -117,6 +121,7 @@ const FruitSlice = createSlice({
   },
 });
 export const {
+  setLogin,
   clearData,
   okModalOpen,
   okModalClose,
